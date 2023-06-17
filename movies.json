@@ -1,0 +1,44 @@
+[
+    {
+        "Title": "Cars",
+        "Rating": "7.9/10",
+        "Year": "2006",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_SX300.jpg"
+    },
+    {
+        "Title": "Titanic",
+        "Rating": "7.9/10",
+        "Year": "1997",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
+    },
+    {
+        "Title": "The Room",
+        "Rating": "3.6/10",
+        "Year": "2003",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BN2IwYzc4MjEtMzJlMS00MDJlLTkzNDAtN2E4NGNkZjg0MDgxXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_SX300.jpg"
+    },
+    {
+        "Title": "Finding Nemo",
+        "Rating": "8.2/10",
+        "Year": "2003",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZjMxYzBiNjUtZDliNC00MDAyLTg3N2QtOWNjNmNhZGQzNDg5XkEyXkFqcGdeQXVyNjE2MjQwNjc@._V1_SX300.jpg"
+    },
+    {
+        "Title": "Vertigo",
+        "Rating": "8.3/10",
+        "Year": "1958",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYTE4ODEwZDUtNDFjOC00NjAxLWEzYTQtYTI1NGVmZmFlNjdiL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg"
+    },
+    {
+        "Title": "Batman",
+        "Rating": "7.5/10",
+        "Year": "1989",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg"
+    },
+    {
+        "Title": "Batman",
+        "Rating": "7.5/10",
+        "Year": "1989",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg"
+    }
+]
