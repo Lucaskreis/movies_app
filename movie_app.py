@@ -111,14 +111,12 @@ class MovieApp:
         part_of_movie = input("Enter part of movie name:")
         # Searches through the dictionaries to find match
         movies = self._storage.list_movies()
-        print(movies)
         for i in movies:
-            if part_of_movie in i['Title']:
-                print(f"Results of your search:{i['Title']}")
-                break
+            if part_of_movie not in i['Title']:
+                continue
             else:
-                print("Movie not found")
-                #self.run()
+                print(f"Results of your search:{i['Title']}, Rating: {i['Rating']}, Year of release: {i['Year']}")
+                break
         # Returns to the main menu
         input("Press enter to continue")
         return self.run()
