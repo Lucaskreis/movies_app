@@ -25,7 +25,7 @@ class MovieApp:
     def _command_list_movies(self):
         movies = self._storage.list_movies()
         # iterate over the data showing the list of movies
-        print(f"{len(movies)} movies in total")
+        #print(f"{len(movies)} movies in total")
         for item in movies:
             print(f"{item['Title']}, Year of release: {item['Year']}")
         # Returns to the main menu
@@ -58,6 +58,7 @@ class MovieApp:
         return self.run()
 
     def _command_update_movie(self):
+        # Verificar erros com os inputs, letras sem caps ou numero de digitos nos rating
         # Asks for the data to be updated
         movie_name = input("Enter movie name:")
         new_rating = float(input("Enter new rating:"))
@@ -110,12 +111,14 @@ class MovieApp:
         part_of_movie = input("Enter part of movie name:")
         # Searches through the dictionaries to find match
         movies = self._storage.list_movies()
+        print(movies)
         for i in movies:
             if part_of_movie in i['Title']:
                 print(f"Results of your search:{i['Title']}")
+                break
             else:
                 print("Movie not found")
-                self.run()
+                #self.run()
         # Returns to the main menu
         input("Press enter to continue")
         return self.run()

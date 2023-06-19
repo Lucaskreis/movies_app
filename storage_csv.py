@@ -1,5 +1,7 @@
 from istorage import IStorage
 import csv
+import pandas as pd
+
 
 # https://www.analyticsvidhya.com/blog/2021/08/python-tutorial-working-with-csv-file-for-data-science/
 class StorageCsv(IStorage):
@@ -8,8 +10,11 @@ class StorageCsv(IStorage):
 
     def list_movies(self):
         with open(self.file_path, "r") as fileobj:
-            data = csv.loads(fileobj.read())
-            return data
+            csvreader = csv.DictReader(fileobj)
+            list_of_movies = []
+            for row in csvreader:
+                list_of_movies.append(row)
+            return list_of_movies
 
     def add_movie(self, title, year, poster, rating):
         self.title = title
@@ -17,29 +22,29 @@ class StorageCsv(IStorage):
         self.rating = rating
         self.poster = poster
         new_data = {"Title": self.title, "Rating": self.rating, "Year": self.year, "Poster": self.poster}
-        with open("movies.csv", "r+") as fileobj:
-            file_data = csv.loads(fileobj.read())
-            file_data.append(new_data)
-            fileobj.seek(0)
-            csv.dump(file_data, fileobj, indent=4)
+        with open("movies.csv", "a", newline='') as fileobj:
+            writer = csv.DictWriter(fileobj, fieldnames=new_data.keys())
+            writer.writerow(new_data)
 
     def delete_movie(self, title):
         self.title = title
-        with open("movies.csv") as fileobj:
-            file_data = csv.loads(fileobj.read())
-            for item in file_data:
-                if self.title == item["Title"]:
-                    file_data.remove(item)
-        with open("movies.csv", "w") as fileobj:
-            csv.dump(file_data, fileobj, indent=4)
+        df = pd.read_csv('movies.csv', index_col='Title')
+        df = df.drop(self.title)
+        df.to_csv('movies.csv', index=True)
 
     def update_movie(self, title, rating):
         self.title = title
         self.rating = rating
-        with open("movies.csv", "r") as fileobj:
-            file_data = csv.loads(fileobj.read())
-            for item in file_data:
-                if self.title == item["Title"]:
-                    item["Rating"] = self.rating
+        list_of_movies = self.list_movies()
+        for item in list_of_movies:
+            print(item)
+            print(self.title, "self")
+            print(item["Title"])
+            if self.title == item["Title"]:
+                item["Rating"] = self.rating
+        headers = ["Title","Rating","Year","Poster"]
         with open("movies.csv", "w") as fileobj:
-            csv.dump(file_data, fileobj, indent=4)
+            data = csv.DictWriter(fileobj, fieldnames=headers)
+            data.writeheader()
+            data.writerows(list_of_movies)
+
